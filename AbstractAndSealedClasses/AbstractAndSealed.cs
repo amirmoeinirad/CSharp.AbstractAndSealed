@@ -12,8 +12,11 @@ using System;
 
 namespace AbstractAndSealedClasses
 {
+    // The following is a documentation comment which is used to generate XML documentation for the code.
+    // These documentations can be viewed in IntelliSense in Visual Studio.
+    // <summary> ... </summary> tags provide a summary of the class or method.
     /// <summary>
-    /// Person Class
+    /// A Custom Person Class
     /// </summary>
 
     // Abstract classes cannot be instantiated directly.
