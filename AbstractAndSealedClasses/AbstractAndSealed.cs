@@ -20,6 +20,8 @@ namespace AbstractAndSealedClasses
     /// </summary>
 
     // Abstract classes cannot be instantiated directly.
+    // They are usually used as base classes for other classes (in inheritance hierarchy).
+    // They just provide a general concept and template for derived classes.
     internal abstract class Person
     {
         // Fields
@@ -29,16 +31,17 @@ namespace AbstractAndSealedClasses
 
 
         // Default Constructor
+        // The default constructor takes no parameters.
         public Person()
         {
-            Console.WriteLine("Person class's default constructor called...\n");
+            Console.WriteLine("Person class's default constructor...");
         }
 
 
         // Custom Constructor
         public Person(string fn, string ln)
         {
-            Console.WriteLine("Person class's custom constructor called...\n");
+            Console.WriteLine("Person class's custom constructor...");
 
             firstName = fn;
             lastName = ln;
@@ -63,17 +66,19 @@ namespace AbstractAndSealedClasses
 
     // Sealed classes cannot be inherited, but can be instantiated.
     // The Employee and Contractor classes are sealed, meaning they cannot be further subclassed.
+    // Sealed classes are often used to prevent further inheritance for security or design reasons.
     internal sealed class Employee : Person
     {
         // Field
-        public ushort hireYear;
+        private ushort hireYear;
 
 
         // Default Constructor
         // 'base' means calling the base class's constructor.
+        // So, the base class's default constructor is called first.
         public Employee() : base() 
         {
-            Console.WriteLine("Employee subclass's default constructor called...\n");
+            Console.WriteLine("Employee subclass's default constructor...\n");
         }
 
 
@@ -82,7 +87,7 @@ namespace AbstractAndSealedClasses
         // Then, Employee inherits the 'firstName' and 'lastName' fields from Person.
         public Employee(string fn, string ln, ushort hy) : base(fn, ln)
         {
-            Console.WriteLine("Employee subclass's custom constructor called...\n");
+            Console.WriteLine("Employee subclass's custom constructor...\n");
 
             hireYear = hy;
         }
@@ -90,6 +95,7 @@ namespace AbstractAndSealedClasses
 
         // Implementing or overriding the base-class abstract method
         // The 'override' keyword is used to indicate that this method is overriding a base class method.
+        // 'override' is part of the inheritance and polymorphism concepts in OOP.
         public override void DisplayFullName()
         {
             Console.WriteLine("Employee: {0} {1}. Hiring Year: {2}", firstName, lastName, hireYear);
@@ -109,13 +115,13 @@ namespace AbstractAndSealedClasses
     internal sealed class Contractor : Person
     {
         // Field
-        public string companyName;
+        private string companyName;
 
 
         // Default Constructor
         public Contractor() : base()
         {
-            Console.WriteLine("Contractor subclass's default constructor called...\n");
+            Console.WriteLine("Contractor subclass's default constructor...\n");
         }
 
 
@@ -123,7 +129,7 @@ namespace AbstractAndSealedClasses
         // Passing 'fn' and 'ln' to the base class's constructor to initialize the 'firstName' and 'lastName' fields.
         public Contractor(string fn, string ln, string cn) : base(fn, ln)
         {
-            Console.WriteLine("Contractor subclass's custom constructor called...\n");
+            Console.WriteLine("Contractor subclass's custom constructor...\n");
 
             companyName = cn;
         }
