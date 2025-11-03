@@ -32,10 +32,15 @@ namespace AbstractAndSealedClasses
 
         // Default Constructor
         // The default constructor takes no parameters.
+        // Block-Body Style (older)
         public Person()
         {
             Console.WriteLine("Person class's default constructor...");
         }
+        // Expression-Body Style (newer)
+        // '=>' is the lambda operator.
+        // The new style for method definition is implemented using the lambda expression syntax.
+        // public Person() => Console.WriteLine("Person class's default constructor...");
 
 
         // Custom Constructor
